@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Poppins", "sans-serif";
+  }
+  body {
+    background: rgb(175,195,196);
+    background: radial-gradient(circle, rgba(175,195,196,1) 0%, rgba(86,112,134,1) 100%);
+  }
+}
+
+@layer components {
+  .input-box {
+    @apply w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-4 outline-none;
+  }
+
+  .btn-primary {
+    @apply w-full text-sm bg-primary text-white p-2 rounded my-1 hover:bg-blue-600;
+  }
+
+  .icon-btn {
+    @apply text-xl text-slate-300 cursor-pointer hover:text-primary;
+  }
+
+  .input-label {
+    @apply text-xs text-slate-400;
+  }
+
+  .rounded-box {
+    @apply border-2 border-gray-300 rounded-lg p-5 max-w-md mx-auto bg-gray-100 shadow-lg text-center;
+  }
+
+  /* Styles for Login Page */
+
+  .login-container {
+    @apply flex h-screen;
+  }
+
+  .left-section {
+    @apply flex-1 flex flex-col justify-center items-center text-white p-8;
+  }
+
+  .typing-text {
+    @apply text-5xl font-bold mb-6 text-center;
+  }
+
+  .info-square {
+    @apply w-4/5 h-48 bg-white text-blue-500 rounded-lg flex justify-center items-center text-center p-4 shadow-md;
+  }
+
+  .right-section {
+    @apply flex-1 flex justify-center items-center;
+  }
+
+  .login-form {
+    @apply w-80 p-8 bg-white rounded-lg shadow-lg;
+  }
+}
