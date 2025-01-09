@@ -378,46 +378,46 @@ console.log("allNotes:", allNotes); // Debug `allNotes`
     <>
 
       <Navbar userInfo={userInfo} onSearchNote={onSearchNote} handleClearSearch={handleClearSearch} />
-      <div className="container mx-auto">
-        {allNotes.length > 0 ? (
-        <div className="grid grid-cols-3 gap-4 mt-8">
-          {allNotes.map((item, index)=>(
-                      <NoteCard
-                      key={item._id}
-                      title={item.title}
-                      //date={moment(item.createdOn).format('Do MMM YYYY')}
-                      date={item.createdOn}
-                      content={item.content}
-                      tags={item.tags}
-                      isPinned={item.isPinned}
-                      onEdit={() => handleEdit(item)}
-                      onDelete={() => deleteNote(item)}
-                      onPinNote={() => updateIsPinned(item)}
-                    />
-
-          ))}
-
-        </div> 
-        ) : (
-<EmptyCard
-  //imgSrc={isSearch ? NoDataImg : AddNotesImg1}
-  imgSrc={isSearch ? AddNotesImg2 : AddNotesImg1}
-
-  message={
-    <div className="rounded-box">
-      <span style={{ fontSize: "1.5rem", fontWeight: "bold", lineHeight: "2rem", textAlign: "center", display: "block" }}>
-        Start creating your first Connect10n! <br />
-        Click the ADD button to jot down any contact information and additional categories about your new Connect10n!
-      </span>
+<div className="container mx-auto px-4">
+  {allNotes.length > 0 ? (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+      {allNotes.map((item, index) => (
+        <NoteCard
+          key={item._id}
+          title={item.title}
+          date={item.createdOn}
+          content={item.content}
+          tags={item.tags}
+          isPinned={item.isPinned}
+          onEdit={() => handleEdit(item)}
+          onDelete={() => deleteNote(item)}
+          onPinNote={() => updateIsPinned(item)}
+        />
+      ))}
     </div>
-  }
-/>
+  ) : (
+    <EmptyCard
+      imgSrc={isSearch ? AddNotesImg2 : AddNotesImg1}
+      message={
+        <div className="rounded-box">
+          <span
+            style={{
+              fontSize: "1.5rem",
+              fontWeight: "bold",
+              lineHeight: "2rem",
+              textAlign: "center",
+              display: "block",
+            }}
+          >
+            Start creating your first Connect10n! <br />
+            Click the ADD button to jot down any contact information and additional categories about your new Connect10n!
+          </span>
+        </div>
+      }
+    />
+  )}
+</div>
 
-
-          
-          //message={isSearch? "Oops! No information found matching results!":"Start creating your first Connect10n! Click the ADD button to jot down any contact information and additional categories about your new Connect10n!" }/>
-        )}
-      </div>
       <button
         className="w-16 h-16 flex items-center justify-center rounded-2xl bg-black hover:bg-gray-700 absolute right-10 bottom-10"
         onClick={() => {
